@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "web-socket-tester": "apps/web-socket-tester",
+    "web-socket-tester-e2e": "apps/web-socket-tester-e2e"
+  }
+}
