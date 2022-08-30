@@ -1,9 +1,5 @@
-<div style="text-align: center">
-  <h1>Welcome to web-socket-tester!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
+<div class="menu-bar">
+  <p-menubar [model]="items"> </p-menubar>
 </div>
-<div>Message: {{ hello$ | async | json }}</div>
+<web-socket-tester-connection></web-socket-tester-connection>
+<web-socket-tester-messages></web-socket-tester-messages>

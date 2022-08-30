@@ -1,0 +1,19 @@
+<div class="p-inputgroup">
+  <span class="p-input-icon-right p-input-filled">
+    <input
+      pInputText
+      [(ngModel)]="inputUrl"
+      type="text"
+      placeholder="ws://"
+      class="p-inputtext-lg input-url"
+    />
+    <button
+      pButton
+      type="button"
+      label="Connect"
+      class="p-button-raised p-button-lg connect-button"
+      [loading]="isConnecting"
+      (click)="connect()"
+    ></button>
+  </span>
+</div>
