@@ -13,3 +13,20 @@
   height: 6vh;
   width: 8vw;
 }
+
+:host ::ng-deep .p-dropdown {
+  background-color: #373535 !important;
+}
+:host ::ng-deep .p-dropdown-open {
+  background-color: black;
+}
+:host ::ng-deep .p-dropdown-label {
+  font-size: 40px !important;
+  vertical-align: middle;
+  text-align: center;
+}
+
+:host ::ng-deep .p-dropdown-item {
+  font-size: 30px !important;
+  text-align: right;
+}

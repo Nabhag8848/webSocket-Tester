@@ -7,3 +7,8 @@ export interface Notification {
   length: number;
   time: Date;
 }
+
+export interface PushMessage {
+  type: string;
+  code: string; // Unique identifier
+}

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@web-socket-tester/api-interfaces';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -11,7 +10,6 @@ import { MenuItem } from 'primeng/api';
 export class AppComponent implements OnInit {
   items: MenuItem[] = [];
 
-  hello$ = this.http.get<Message>('/api/hello');
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
