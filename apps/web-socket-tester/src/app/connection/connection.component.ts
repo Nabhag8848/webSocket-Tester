@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { PushMessage } from '@web-socket-tester/api-interfaces';
+import { ConnectionService } from '../services/connection.service';
 
 @Component({
   selector: 'web-socket-tester-connection',
   templateUrl: './connection.component.html',
   styleUrls: ['./connection.component.scss'],
 })
-export class ConnectionComponent {
+export class ConnectionComponent implements OnDestroy {
   allowedTypes: PushMessage[];
   selectedType!: string;
   inputUrl!: string;
   isConnecting!: boolean;
+  isConnected!: boolean;
+  socket: WebSocket | undefined;
 
-  constructor() {
+  constructor(private connectionService: ConnectionService) {
     this.selectedType = 'def';
     this.allowedTypes = [
       {
@@ -26,16 +29,33 @@ export class ConnectionComponent {
     ];
   }
 
-  connect(): boolean {
+  async connect(): Promise<boolean> {
     this.isConnecting = true;
-    console.log(this.inputUrl);
-    console.log(this.isConnecting);
+
+    this.socket = await this.connectionService.connect({
+      inputUrl: this.inputUrl,
+    });
 
     setTimeout(() => {
       this.isConnecting = false;
-      console.log(this.isConnecting);
-    }, 1000);
+
+      if (this.socket == undefined) {
+        return;
+      }
+
+      if (this.socket.readyState === 1) {
+        // make user aware its connected
+      } else if (this.socket.readyState === 2) {
+        // make user aware its closing state
+      } else if (this.socket.readyState === 3) {
+        // make user aware its closed
+      }
+    }, 2000);
 
     return true;
+  }
+
+  ngOnDestroy(): void {
+    this.socket?.close();
   }
 }

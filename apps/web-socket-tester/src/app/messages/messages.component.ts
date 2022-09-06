@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Notification } from '@web-socket-tester/api-interfaces';
 import { MessageService } from 'primeng/api';
 
@@ -10,9 +10,7 @@ import { MessageService } from 'primeng/api';
 })
 export class MessagesComponent {
   pushMessage!: Notification;
-
   selectedMessage: Notification | undefined;
-
   lockedMessages: Notification[] = [];
   unlockedMessages: Notification[] = [
     {
