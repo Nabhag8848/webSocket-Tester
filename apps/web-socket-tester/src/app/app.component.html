@@ -1,5 +1,8 @@
 <div class="menu-bar">
-  <p-menubar [model]="items"> </p-menubar>
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start"></ng-template>
+  </p-menubar>
 </div>
+
 <web-socket-tester-connection></web-socket-tester-connection>
 <web-socket-tester-messages></web-socket-tester-messages>

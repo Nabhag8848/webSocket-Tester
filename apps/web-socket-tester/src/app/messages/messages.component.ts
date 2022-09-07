@@ -14,6 +14,7 @@ export class MessagesComponent {
   lockedMessages: Notification[] = [];
   unlockedMessages: Notification[] = [
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -33,6 +34,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -52,6 +54,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -71,6 +74,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -90,6 +94,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -109,6 +114,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -128,6 +134,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -147,6 +154,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -166,6 +174,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,
@@ -185,6 +194,7 @@ export class MessagesComponent {
       time: new Date(),
     },
     {
+      event: 'message received',
       message: `{
         "fee": 78.05799225,
         "feeRate": 0.0014,

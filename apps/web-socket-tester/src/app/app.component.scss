@@ -5,3 +5,7 @@
   right: 0px;
   left: 0px;
 }
+
+:host ::ng-deep p-menubarsub {
+  width: 100%;
+}

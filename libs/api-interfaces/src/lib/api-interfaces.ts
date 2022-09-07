@@ -3,6 +3,7 @@ export interface Message {
 }
 
 export interface Notification {
+  event: string;
   message: string;
   length: number;
   time: Date;

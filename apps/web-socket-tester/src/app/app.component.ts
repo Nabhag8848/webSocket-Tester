@@ -25,6 +25,9 @@ export class AppComponent implements OnInit {
           { label: 'Open' },
           { label: 'Quit' },
         ],
+        style: {
+          'margin-left': '85%',
+        },
       },
       {
         label: 'Edit',
