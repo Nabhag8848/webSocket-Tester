@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { Notification } from '@web-socket-tester/api-interfaces';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'web-socket-tester-messages',
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss'],
-  providers: [MessageService],
+  providers: [],
 })
 export class MessagesComponent {
   pushMessage!: Notification;
@@ -215,8 +214,6 @@ export class MessagesComponent {
     },
   ];
 
-  constructor(private messageService: MessageService) {}
-
   toggleLock(data: Notification, frozen: boolean, index: number) {
     if (frozen) {
       this.lockedMessages = this.lockedMessages.filter((c, i) => i !== index);
@@ -227,7 +224,22 @@ export class MessagesComponent {
       );
       this.lockedMessages.push(data);
     }
+  }
 
-    console.log(this.selectedMessage);
+  onRowSelect({ data }: any) {
+    for (let i = 0; i < this.lockedMessages.length; ++i) {
+      if (data === this.lockedMessages[i]) {
+        return;
+      }
+    }
+    this.selectedMessage = data;
+  }
+
+  onRowUnselect({ data }: any) {
+    this.selectedMessage = undefined;
+  }
+
+  onMouseEnter(): void {
+    console.log('OnMouseEnter');
   }
 }

@@ -1,4 +1,11 @@
 .notifications {
   position: relative;
-  top: 30vh;
+  top: 13vh;
+  max-width: fit-content;
+  width: 60vw;
+  margin-left: auto;
+}
+
+.row-hover {
+  background-color: #1e1e1e !important;
 }

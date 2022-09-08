@@ -4,26 +4,36 @@
     styleClass="p-datatable-gridlines p-datatable-sm"
     class="pushMessageTable"
     [frozenValue]="lockedMessages"
-    scrollHeight="400px"
+    scrollHeight="50vh"
     responsiveLayout="scroll"
     [autoLayout]="true"
     class="push-message-table"
     [scrollable]="true"
+    selectionMode="single"
+    [(selection)]="selectedMessage"
+    compareSelectionBy="equals"
+    (onRowSelect)="onRowSelect($event)"
+    (onRowUnselect)="onRowUnselect($event)"
+    [rowHover]="false"
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="flex-basis: 10.4%; flex-grow: 0">Event</th>
-        <th style="flex-basis: 55%; flex-grow: 0">Data</th>
-        <th style="flex-basis: 6%; flex-grow: 0">Length</th>
-        <th style="flex-basis: 25.25%; flex-grow: 0">Time</th>
-        <th style="flex: 0 0 3.35%"></th>
+        <th style="flex-basis: 10.2%; flex-grow: 0">Event</th>
+        <th style="flex-basis: 53.65%; flex-grow: 0">Data</th>
+        <th style="flex-basis: 6.6%; flex-grow: 0">Length</th>
+        <th style="flex-basis: 24.6%; flex-grow: 0">Time</th>
+        <th style="flex: 0 0 4.95%"></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="frozenbody" let-message let-index="rowIndex">
-      <tr>
+      <tr
+        [pSelectableRow]="message"
+        (mouseenter)="onMouseEnter()"
+        [class.row-hover]="true"
+      >
         <td style="flex-basis: 10.4%; flex-grow: 0">{{ message.event }}</td>
         <td style="flex-basis: 55%; flex-grow: 0">{{ message.message }}</td>
-        <td style="flex-basis: 6%; flex-grow: 0">{{ message.length }}</td>
+        <td style="flex-basis: 6.7%; flex-grow: 0">{{ message.length }}</td>
         <td style="flex-basis: 25.25%; flex-grow: 0">{{ message.time }}</td>
         <td style="flex: 0 0 3.35%">
           <button
@@ -38,10 +48,10 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-message let-index="rowIndex">
-      <tr>
+      <tr [pSelectableRow]="message">
         <td style="flex-basis: 10.4%; flex-grow: 0">{{ message.event }}</td>
         <td style="flex-basis: 55%; flex-grow: 0">{{ message.message }}</td>
-        <td style="flex-basis: 6%; flex-grow: 0">{{ message.length }}</td>
+        <td style="flex-basis: 6.7%; flex-grow: 0">{{ message.length }}</td>
         <td style="flex-basis: 25.25%; flex-grow: 0">{{ message.time }}</td>
         <td style="flex: 0 0 3.35">
           <button
