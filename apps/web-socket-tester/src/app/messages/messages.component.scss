@@ -1,6 +1,6 @@
 .notifications {
   position: relative;
-  top: 13vh;
+  top: 5vh;
   max-width: fit-content;
   width: 60vw;
   margin-left: auto;
@@ -8,4 +8,23 @@
 
 .row-hover {
   background-color: #1e1e1e !important;
+}
+
+.message {
+  display: flex;
+}
+
+.inputField {
+  position: relative;
+  top: 5vh;
+  width: 50vw;
+  height: 40vw;
+}
+
+.connect-button {
+  position: relative;
+  height: 6vh;
+  width: 8vw;
+  top: -0.85vw;
+  left: 78vw;
 }

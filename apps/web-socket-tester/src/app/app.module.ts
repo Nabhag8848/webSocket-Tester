@@ -13,6 +13,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 // Components
 import { MessagesComponent } from './messages/messages.component';
@@ -39,6 +40,7 @@ import { ValidationDirective } from './shared/validation.directive';
     TableModule,
     DropdownModule,
     BrowserAnimationsModule,
+    InputTextareaModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

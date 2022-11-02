@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { PushMessage } from '@web-socket-tester/api-interfaces';
 import { ConnectionService } from '../services/connection.service';
-
+import { unzip } from 'fflate';
 @Component({
   selector: 'web-socket-tester-connection',
   templateUrl: './connection.component.html',
@@ -31,9 +31,10 @@ export class ConnectionComponent implements OnDestroy {
 
   async connect(): Promise<boolean> {
     this.isConnecting = true;
-
+    console.log('TYpeOf', this.selectedType);
     this.socket = await this.connectionService.connect({
       inputUrl: this.inputUrl,
+      type: this.selectedType,
     });
 
     setTimeout(() => {
@@ -42,7 +43,6 @@ export class ConnectionComponent implements OnDestroy {
       if (this.socket == undefined) {
         return;
       }
-
       if (this.socket.readyState === 1) {
         // make user aware its connected
       } else if (this.socket.readyState === 2) {

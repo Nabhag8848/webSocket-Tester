@@ -6,6 +6,8 @@ import { MenuItem } from 'primeng/api';
   selector: 'web-socket-tester-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+
+  // https://onlinetexttools.com/extract-regex-matches-from-text
 })
 export class AppComponent implements OnInit {
   items: MenuItem[] = [];

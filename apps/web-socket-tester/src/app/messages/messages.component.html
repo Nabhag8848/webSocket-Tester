@@ -1,70 +1,92 @@
-<div class="notifications">
-  <p-table
-    [value]="unlockedMessages"
-    styleClass="p-datatable-gridlines p-datatable-sm"
-    class="pushMessageTable"
-    [frozenValue]="lockedMessages"
-    scrollHeight="50vh"
-    responsiveLayout="scroll"
-    [autoLayout]="true"
-    class="push-message-table"
-    [scrollable]="true"
-    selectionMode="single"
-    [(selection)]="selectedMessage"
-    compareSelectionBy="equals"
-    (onRowSelect)="onRowSelect($event)"
-    (onRowUnselect)="onRowUnselect($event)"
-    [rowHover]="false"
-  >
-    <ng-template pTemplate="header">
-      <tr>
-        <th style="flex-basis: 10.2%; flex-grow: 0">Event</th>
-        <th style="flex-basis: 53.65%; flex-grow: 0">Data</th>
-        <th style="flex-basis: 6.6%; flex-grow: 0">Length</th>
-        <th style="flex-basis: 24.6%; flex-grow: 0">Time</th>
-        <th style="flex: 0 0 4.95%"></th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="frozenbody" let-message let-index="rowIndex">
-      <tr
-        [pSelectableRow]="message"
-        (mouseenter)="onMouseEnter()"
-        [class.row-hover]="true"
-      >
-        <td style="flex-basis: 10.4%; flex-grow: 0">{{ message.event }}</td>
-        <td style="flex-basis: 55%; flex-grow: 0">{{ message.message }}</td>
-        <td style="flex-basis: 6.7%; flex-grow: 0">{{ message.length }}</td>
-        <td style="flex-basis: 25.25%; flex-grow: 0">{{ message.time }}</td>
-        <td style="flex: 0 0 3.35%">
-          <button
-            pButton
-            pRipple
-            type="button"
-            [icon]="'pi pi-lock-open'"
-            (click)="toggleLock(message, true, index)"
-            class="p-button-sm p-button-text"
-          ></button>
-        </td>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-message let-index="rowIndex">
-      <tr [pSelectableRow]="message">
-        <td style="flex-basis: 10.4%; flex-grow: 0">{{ message.event }}</td>
-        <td style="flex-basis: 55%; flex-grow: 0">{{ message.message }}</td>
-        <td style="flex-basis: 6.7%; flex-grow: 0">{{ message.length }}</td>
-        <td style="flex-basis: 25.25%; flex-grow: 0">{{ message.time }}</td>
-        <td style="flex: 0 0 3.35">
-          <button
-            pButton
-            pRipple
-            type="button"
-            [icon]="'pi pi-lock'"
-            [disabled]="lockedMessages.length >= 2"
-            (click)="toggleLock(message, false, index)"
-            class="p-button-sm p-button-text"
-          ></button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
+<button
+  pButton
+  type="button"
+  label="Subscribe"
+  class="p-button-raised p-button-lg connect-button"
+  (click)="subscribe()"
+></button>
+<button
+  pButton
+  type="button"
+  label="Unsubscribe"
+  class="p-button-raised p-button-lg connect-button"
+  (click)="unsubscribe()"
+></button>
+<div class="message">
+  <textarea
+    class="inputField"
+    pInputTextarea
+    [(ngModel)]="inputText"
+  ></textarea>
+
+  <div class="notifications">
+    <p-table
+      [value]="unlockedMessages"
+      styleClass="p-datatable-gridlines p-datatable-sm"
+      class="pushMessageTable"
+      [frozenValue]="lockedMessages"
+      scrollHeight="50vh"
+      responsiveLayout="scroll"
+      [autoLayout]="true"
+      class="push-message-table"
+      [scrollable]="true"
+      selectionMode="single"
+      [(selection)]="selectedMessage"
+      compareSelectionBy="equals"
+      (onRowSelect)="onRowSelect($event)"
+      (onRowUnselect)="onRowUnselect($event)"
+      [rowHover]="false"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="flex-basis: 10.2%; flex-grow: 0">Event</th>
+          <th style="flex-basis: 53.65%; flex-grow: 0">Data</th>
+          <th style="flex-basis: 6.6%; flex-grow: 0">Length</th>
+          <th style="flex-basis: 24.6%; flex-grow: 0">Time</th>
+          <th style="flex: 0 0 4.95%"></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="frozenbody" let-message let-index="rowIndex">
+        <tr
+          [pSelectableRow]="message"
+          (mouseenter)="onMouseEnter()"
+          [class.row-hover]="true"
+        >
+          <td style="flex-basis: 10.4%; flex-grow: 0">{{ message.event }}</td>
+          <td style="flex-basis: 55%; flex-grow: 0">{{ message.message }}</td>
+          <td style="flex-basis: 6.7%; flex-grow: 0">{{ message.length }}</td>
+          <td style="flex-basis: 25.25%; flex-grow: 0">{{ message.time }}</td>
+          <td style="flex: 0 0 3.35%">
+            <button
+              pButton
+              pRipple
+              type="button"
+              [icon]="'pi pi-lock-open'"
+              (click)="toggleLock(message, true, index)"
+              class="p-button-sm p-button-text"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-message let-index="rowIndex">
+        <tr [pSelectableRow]="message">
+          <td style="flex-basis: 10.4%; flex-grow: 0">{{ message.event }}</td>
+          <td style="flex-basis: 55%; flex-grow: 0">{{ message.message }}</td>
+          <td style="flex-basis: 6.7%; flex-grow: 0">{{ message.length }}</td>
+          <td style="flex-basis: 25.25%; flex-grow: 0">{{ message.time }}</td>
+          <td style="flex: 0 0 3.35">
+            <button
+              pButton
+              pRipple
+              type="button"
+              [icon]="'pi pi-lock'"
+              [disabled]="lockedMessages.length >= 2"
+              (click)="toggleLock(message, false, index)"
+              class="p-button-sm p-button-text"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </div>

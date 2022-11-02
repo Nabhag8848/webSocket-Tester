@@ -29,6 +29,7 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nrwl/angular": "14.5.10",
+    "fflate": "^0.7.4",
     "primeicons": "^5.0.0",
     "primeng": "^14.0.2",
     "reflect-metadata": "^0.1.13",
