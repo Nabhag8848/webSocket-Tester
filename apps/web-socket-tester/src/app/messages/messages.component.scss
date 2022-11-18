@@ -25,6 +25,12 @@
   position: relative;
   height: 6vh;
   width: 8vw;
-  top: -0.85vw;
-  left: 78vw;
+  top: -1vh;
+  left: 78.5vw;
+}
+
+.sendmessage {
+  display: flex;
+  justify-content: space-around;
+  max-width: 18vw;
 }

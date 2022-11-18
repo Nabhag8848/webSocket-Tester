@@ -11,11 +11,16 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent implements OnInit {
   items: MenuItem[] = [];
+  logo: MenuItem[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.items = [
+      {
+        label: '𝘄𝗲𝗯𝗦𝗼𝗰𝗸𝗲𝘁𝗧𝗲𝘀𝘁𝗲𝗿',
+        items: [],
+      },
       {
         label: 'File',
         items: [
@@ -27,9 +32,6 @@ export class AppComponent implements OnInit {
           { label: 'Open' },
           { label: 'Quit' },
         ],
-        style: {
-          'margin-left': '85%',
-        },
       },
       {
         label: 'Edit',
